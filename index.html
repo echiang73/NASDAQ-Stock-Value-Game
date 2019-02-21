@@ -15,6 +15,16 @@
     crossorigin="anonymous"></script>
 
   <title>NASDAQ Stock Collector</title>
+
+  <style type="text/css">
+    .stock-image {
+      width: 90px;
+      height: 90px;
+    }
+  </style>
+
+
+
 </head>
 
 <body>
@@ -112,7 +122,7 @@
     <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
     <script type="text/javascript">
 
-    // Each stock click is caching, IF WIN, PLAY MONEY MONEY MONEY AUDIO SONG!
+      // Each stock click is caching, IF WIN, PLAY MONEY MONEY MONEY AUDIO SONG!
 
 
 
@@ -131,30 +141,37 @@
       // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
       // We begin by expanding our array to include four/five options, random hidden value between 1 - 12.
-        for(var i=0; i<5; i++) {
-          var numberOptions = ((Math.floor(Math.random() * 12))+ 1);
-          // numberOptions.push;
-          
+      for (var i = 0; i < 5; i++) {
+        var numberOptions = ((Math.floor(Math.random() * 12)) + 1);
+        // numberOptions.push;
 
-          // For each iteration, we will create an imageStock
-          var imageStock = $("<img>");
 
-           // First each stock will be given the class ".crystal-image".
-          // This will allow the CSS to take effect.
+        // For each iteration, we will create an imageStock
+        var imageStock = $("<img>");
+
+        // First each stock will be given the class ".stock-image".
+        // This will allow the CSS to take effect.
         imageStock.addClass("stock-image");
+
+        // Each imageCrystal will be given a src link to the crystal image
+        imageStock.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
+
 
         // Each imageCrystal will be given a src link to the crystal image
         imageStock.attr("data-stockvalue", numberOptions[i]);
         console.log("random stock values: " + numberOptions);
 
-        }
+        // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+        $(".stock-image").append(imageStock);
+
+      }
 
 
 
       // Functions
       // ============================================================================================================
 
- 
+
 
       // This time, our click event applies to every single crystal on the page. Not just one.
       $(".stock-image").on("click", function () {
