@@ -20,9 +20,9 @@
 <body>
   <div class="wrapper">
     <div id=image-header>
-        <img src="assets/images/nasdaq/nasdaq_logo.png" id="nasdaq-logo" width=90%;>
+      <img src="assets/images/nasdaq/nasdaq_logo.png" id="nasdaq-logo" width=90%;>
     </div>
-    
+
 
     <div class="card bg-light mb-12" style="max-width: 64rem;">
       <div class="card-header" id="title">Stock Value Game</div>
@@ -38,40 +38,48 @@
       </ul>
     </div>
 
-    <br/>
+    <br />
 
     <!-- <div class="card-body">
     </div> -->
 
     <div class="card bg-light mb-12" style="max-width: 64rem;">
-      <div class="card-header" id="subtitle">Portfolio of NASDAQ Stocks</div>
+      <div class="card-header" id="subtitle">Portfolio of NASDAQ (FAANG) Stocks</div>
       <div id="win-counter">Wins: </div>
       <div id="loss-counter">Losses: </div>
+      <div id="breakdown-values">Breakdown of values (click to show): </div>
       <div class="container">
         <!-- <div class="card-image"> -->
-        <div class="row">
-          <div class="col-sm-3" id="facebook">
-            <img src="assets/images/logos/facebook.png" class="mr-3" id="facebook-image" width=100px;>
+        <div class="row" id="logorow">
+          <div class="col-sm-1">
           </div>
-          <div class="col-sm-3" id="apple">
-            <img src="assets/images/logos/apple.png" class="mr-3" id="apple-image" width=100px;>
+          <div class="col-sm-2 stock-image" id="facebook">
+            <img src="assets/images/logos/facebook.png" class="mr-3" id="facebook-image" width=90px;>
           </div>
-          <div class="col-sm-3" id="netflix">
-            <img src="assets/images/logos/netflix.png" class="mr-3" id="netflix-image" width=100px;>
+          <div class="col-sm-2 stock-image" id="apple">
+            <img src="assets/images/logos/apple.png" class="mr-3" id="apple-image" width=90px;>
           </div>
-          <div class="col-sm-3" id="google">
-            <img src="assets/images/logos/google.png" class="mr-3" id=google-image" width=100px;>
+          <div class="col-sm-2 stock-image" id="amazon">
+            <img src="assets/images/logos/amazon.png" class="mr-3" id="apple-image" width=90px;>
+          </div>
+          <div class="col-sm-2 stock-image" id="netflix">
+            <img src="assets/images/logos/netflix.png" class="mr-3" id="netflix-image" width=90px;>
+          </div>
+          <div class="col-sm-2 stock-image" id="google">
+            <img src="assets/images/logos/google.png" class="mr-3" id=google-image" width=90px;>
+          </div>
+          <div class="col-sm-1">
           </div>
         </div>
       </div>
-      <br/>
+      <br />
 
       <div class="row">
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Value to match: $ million</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text" id="number-to-guess"></p>
 
             </div>
           </div>
@@ -79,8 +87,8 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Your portfolio value: $ million</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <h5 class="card-title">Portfolio value: $ million</h5>
+              <p class="card-text" id="portfolio-value"></p>
 
             </div>
           </div>
@@ -91,88 +99,87 @@
 
     <!-- <img src="assets/images/nasdaq/nasdaqstudio.jpg" id="nasdaq-image" width=1020px;> -->
 
-
-
     <!-- <footer class="footer">
       Copyright &circledR;
       <a href="https://echiang73.github.io/"> Eddie Chiang </a>2019
     </footer> -->
 
 
-
     <!-- JAVASCRIPT  -->
-    <!-- ========================================= -->
-
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
     <script type="text/javascript">
 
+    // Each stock click is caching, IF WIN, PLAY MONEY MONEY MONEY AUDIO SONG!
+
+
 
       // Global Varibles
-      // =============================================================
-      // Arrays and variables for holding data
+      // ============================================================================================================
 
-      var targetNumber = 53;
+      // The random number shown at the start of the game should be between 19 - 120.
+      var targetNumber = ((Math.floor(Math.random() * 102)) + 19);
+      var portfolioCounter = 0;
 
       $("#number-to-guess").text(targetNumber);
+      console.log("Value to match: " + targetNumber);
 
       var counter = 0;
 
       // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
-      // We begin by expanding our array to include four options.
-      var numberOptions = [10, 5, 3, 7];
+      // We begin by expanding our array to include four/five options, random hidden value between 1 - 12.
+        for(var i=0; i<5; i++) {
+          var numberOptions = ((Math.floor(Math.random() * 12))+ 1);
+          // numberOptions.push;
+          
+
+          // For each iteration, we will create an imageStock
+          var imageStock = $("<img>");
+
+           // First each stock will be given the class ".crystal-image".
+          // This will allow the CSS to take effect.
+        imageStock.addClass("stock-image");
+
+        // Each imageCrystal will be given a src link to the crystal image
+        imageStock.attr("data-stockvalue", numberOptions[i]);
+        console.log("random stock values: " + numberOptions);
+
+        }
 
 
 
       // Functions
-      // =============================================================
+      // ============================================================================================================
 
-      // Next we create a for loop to create crystals for every numberOption.
-      for (var i = 0; i < numberOptions.length; i++) {
-
-        // For each iteration, we will create an imageCrystal
-        var imageCrystal = $("<img>");
-
-        // First each crystal will be given the class ".crystal-image".
-        // This will allow the CSS to take effect.
-        imageCrystal.addClass("crystal-image");
-
-        // Each imageCrystal will be given a src link to the crystal image
-        imageCrystal.attr("src", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js");
-
-        // Each imageCrystal will be given a data attribute called data-crystalValue.
-        // This data attribute will be set equal to the array value.
-        imageCrystal.attr("data-crystalvalue", numberOptions[i]);
-
-        // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-        $("#crystals").append(imageCrystal);
-      }
+ 
 
       // This time, our click event applies to every single crystal on the page. Not just one.
-      $(".crystal-image").on("click", function () {
+      $(".stock-image").on("click", function () {
 
-        // Determining the crystal's value requires us to extract the value from the data attribute.
-        // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-        // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
+        // Determining the stock's value requires us to extract the value from the data attribute.
+        // Using the $(this) keyword specifies that we should be extracting the stock value of the clicked stock.
+        // Using the .attr("data-stockvalue") allows us to grab the value out of the "data-stockvalue" attribute.
         // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
 
-        var crystalValue = ($(this).attr("data-crystalvalue"));
-        crystalValue = parseInt(crystalValue);
+        var stockValue = ($(this).attr("data-stockvalue"));
+        alert(stockValue);
+        stockValue = parseInt(stockValue);
+        alert(stockValue);
         // We then add the crystalValue to the user's "counter" which is a global variable.
         // Every click, from every crystal adds to the global counter.
-        counter += crystalValue;
+        portfolioCounter += stockValue;
 
         // All of the same game win-lose logic applies. So the rest remains unchanged.
-        alert("New score: " + counter);
+        alert("New score: " + portfolioCounter);
 
-        if (counter === targetNumber) {
+        if (portfolioCounter === targetNumber) {
           alert("You win!");
         }
 
-        else if (counter >= targetNumber) {
+        else if (portfolioCounter >= targetNumber) {
           alert("You lose!!");
         }
 
@@ -180,7 +187,7 @@
 
 
 // Main Process
-// =============================================================
+// ============================================================================================================
 
 
     </script>
