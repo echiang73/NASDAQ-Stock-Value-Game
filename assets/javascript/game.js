@@ -1,9 +1,13 @@
   // Global Varibles
   // ============================================================================================================
   
-  var audioWin = new Audio("Money-song.mp3");
-  var audioLose = new Audio("Game-over.mp3");
-  var audioClick = new Audio("register-cha-ching.mp3");
+  var audioWin = new Audio("assets/sound/Money-song.mp3");
+  var audioLose = new Audio("assets/sound/Game-over.mp3");
+  var audioClick = new Audio("assets/sound/register-cha-ching.mp3");
+
+  // var audioWin = new Audio("Money-song.mp3");
+  // var audioLose = new Audio("Game-over.mp3");
+  // var audioClick = new Audio("register-cha-ching.mp3");
   
   
   var winCount = 0;
