@@ -50,20 +50,19 @@
 
     <br />
 
-    <!-- <div class="card-body">
-    </div> -->
-
     <div class="card bg-light mb-12" style="max-width: 64rem;">
       <div class="card-header" id="subtitle">Portfolio of NASDAQ (FAANG) Stocks</div>
-      <div id="win-counter">Wins: </div>
-      <div id="loss-counter">Losses: </div>
-      <div id="breakdown-values">Breakdown of values (click to show): </div>
+      <div id="win-counter">Wins: 0</div>
+      <div id="loss-counter">Losses: 0</div>
+      <div id="last-stock-value">Last clicked stock value (click to show): </div>
+      <div id="breakdown-values">Breakdown of portfolio values (click to show): </div>
       <div class="container">
-        <!-- <div class="card-image"> -->
         <div class="row" id="logorow">
-          <div class="col-sm-1">
+          <!-- <div class="col-sm-1">
           </div>
-          <div class="col-sm-2" id="facebook">
+          <div class="col-sm-10" id="logorow">
+            </div> -->
+          <!-- <div class="col-sm-2" id="facebook">
             <img src="assets/images/logos/facebook.png" class="mr-3" id="facebook-image" width=90px;>
           </div>
           <div class="col-sm-2" id="apple">
@@ -77,9 +76,9 @@
           </div>
           <div class="col-sm-2" id="google">
             <img src="assets/images/logos/google.png" class="mr-3" id=google-image" width=90px;>
-          </div>
-          <div class="col-sm-1">
-          </div>
+          </div> -->
+          <!-- <div class="col-sm-1">
+          </div> -->
         </div>
       </div>
       <br />
@@ -122,16 +121,20 @@
     <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
     <script type="text/javascript">
 
-      // Each stock click is caching, IF WIN, PLAY MONEY MONEY MONEY AUDIO SONG!
+
+      // Note to include: Each stock click is ca-ching, IF WIN, PLAY MONEY MONEY MONEY AUDIO SONG!
 
 
 
       // Global Varibles
       // ============================================================================================================
+      var winCount = 0;
+      var lossCount = 0;
 
       // The random number shown at the start of the game should be between 19 - 120.
       var targetNumber = ((Math.floor(Math.random() * 102)) + 19);
       var portfolioCounter = 0;
+      $("#portfolio-value").text(portfolioCounter);
 
       $("#number-to-guess").text(targetNumber);
       console.log("Value to match: " + targetNumber);
@@ -140,11 +143,19 @@
 
       // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
-      // We begin by expanding our array to include four/five options, random hidden value between 1 - 12.
-      for (var i = 0; i < 5; i++) {
-        var numberOptions = ((Math.floor(Math.random() * 12)) + 1);
-        // numberOptions.push;
+      // We begin by expanding our array to include four/five options.
+      var numberOptions = [1,3,5,7,9];  // how do I link the random for loop below!!!!!!
 
+       // We begin by expanding our array to include four/five options, random hidden value between 1 - 12.
+      for (var i = 0; i < 5; i++) {
+      var randomNumberOptions = ((Math.floor(Math.random() * 12)) + 1);
+      randomNumberOptions.push;
+      }
+    
+
+ 
+      for (var i = 0; i < 5; i++) {
+        
 
         // For each iteration, we will create an imageStock
         var imageStock = $("<img>");
@@ -153,17 +164,18 @@
         // This will allow the CSS to take effect.
         imageStock.addClass("stock-image");
 
-        // Each imageCrystal will be given a src link to the crystal image
-        imageStock.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
+        // Each imageStock will be given a src link to the stock image
+        var logoArray = ["facebook", "apple", "amazon", "netflix", "google"];
+        imageStock.attr("src", "assets/images/logos/" + logoArray[i] + ".png");
+        console.log(logoArray[i]);
 
-
-        // Each imageCrystal will be given a src link to the crystal image
+        // Each imageStock will be given a data attribute called data-stockValue.
+        // This data attribute will be set equal to the array value.
         imageStock.attr("data-stockvalue", numberOptions[i]);
         console.log("random stock values: " + numberOptions);
 
-        // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+        // Lastly, each stock image (with all it classes and attributes) will get added to the page.
         $("#logorow").append(imageStock);
-
       }
 
 
@@ -171,9 +183,7 @@
       // Functions
       // ============================================================================================================
 
-
-
-      // This time, our click event applies to every single crystal on the page. Not just one.
+      // This time, our click event applies to every single stock on the page. Not just one.
       $(".stock-image").on("click", function () {
 
         // Determining the stock's value requires us to extract the value from the data attribute.
@@ -182,22 +192,30 @@
         // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
 
         var stockValue = ($(this).attr("data-stockvalue"));
-        alert(stockValue);
+        // alert(stockValue);
         stockValue = parseInt(stockValue);
-        alert(stockValue);
+        // alert(stockValue);
+        $("#last-stock-value").text("Last clicked stock value (click to show): " + stockValue);
+      
         // We then add the crystalValue to the user's "counter" which is a global variable.
         // Every click, from every crystal adds to the global counter.
         portfolioCounter += stockValue;
 
         // All of the same game win-lose logic applies. So the rest remains unchanged.
-        alert("New score: " + portfolioCounter);
+        // alert("New score: " + portfolioCounter);
+        // $("#breakdown-values").text("Breakdown of portfolio values (click to show): " + portfolioCounter);
+        $("#portfolio-value").text(portfolioCounter);
 
         if (portfolioCounter === targetNumber) {
-          alert("You win!");
+          winCount++;
+          $("#win-counter").text("Wins: " + winCount);
+          alert("You win! Your portfolio value matches the target value!");
         }
 
         else if (portfolioCounter >= targetNumber) {
-          alert("You lose!!");
+          lossCount++;
+          $("#loss-counter").text("Losses: " + lossCount);
+          alert("You lose! Sorry, you did not match the target value!");
         }
 
       });

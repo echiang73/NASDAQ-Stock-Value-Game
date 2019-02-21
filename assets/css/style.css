@@ -42,7 +42,7 @@ body {
     color: #009fc2;
 }
 
-#win-counter, #loss-counter, #breakdown-values {
+#win-counter, #loss-counter, #last-stock-value, #breakdown-values {
     text-align: center;
     font-weight: bold;
 }
