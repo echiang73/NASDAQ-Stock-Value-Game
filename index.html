@@ -63,19 +63,19 @@
         <div class="row" id="logorow">
           <div class="col-sm-1">
           </div>
-          <div class="col-sm-2 stock-image" id="facebook">
+          <div class="col-sm-2" id="facebook">
             <img src="assets/images/logos/facebook.png" class="mr-3" id="facebook-image" width=90px;>
           </div>
-          <div class="col-sm-2 stock-image" id="apple">
+          <div class="col-sm-2" id="apple">
             <img src="assets/images/logos/apple.png" class="mr-3" id="apple-image" width=90px;>
           </div>
-          <div class="col-sm-2 stock-image" id="amazon">
+          <div class="col-sm-2" id="amazon">
             <img src="assets/images/logos/amazon.png" class="mr-3" id="apple-image" width=90px;>
           </div>
-          <div class="col-sm-2 stock-image" id="netflix">
+          <div class="col-sm-2" id="netflix">
             <img src="assets/images/logos/netflix.png" class="mr-3" id="netflix-image" width=90px;>
           </div>
-          <div class="col-sm-2 stock-image" id="google">
+          <div class="col-sm-2" id="google">
             <img src="assets/images/logos/google.png" class="mr-3" id=google-image" width=90px;>
           </div>
           <div class="col-sm-1">
@@ -162,7 +162,7 @@
         console.log("random stock values: " + numberOptions);
 
         // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-        $(".stock-image").append(imageStock);
+        $("#logorow").append(imageStock);
 
       }
 
