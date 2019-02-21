@@ -128,6 +128,12 @@
 
       // Global Varibles
       // ============================================================================================================
+      
+      var audioWin = new Audio("Money-song.mp3");
+      var audioLose = new Audio("Game-over.mp3");
+      var audioClick = new Audio("register-cha-ching.mp3");
+      
+      
       var winCount = 0;
       var lossCount = 0;
 
@@ -185,7 +191,7 @@
 
       // This time, our click event applies to every single stock on the page. Not just one.
       $(".stock-image").on("click", function () {
-
+        audioClick.play();
         // Determining the stock's value requires us to extract the value from the data attribute.
         // Using the $(this) keyword specifies that we should be extracting the stock value of the clicked stock.
         // Using the .attr("data-stockvalue") allows us to grab the value out of the "data-stockvalue" attribute.
@@ -209,12 +215,14 @@
         if (portfolioCounter === targetNumber) {
           winCount++;
           $("#win-counter").text("Wins: " + winCount);
+          audioWin.play();
           alert("You win! Your portfolio value matches the target value!");
         }
 
         else if (portfolioCounter >= targetNumber) {
           lossCount++;
           $("#loss-counter").text("Losses: " + lossCount);
+          audioLose.play();
           alert("You lose! Sorry, you did not match the target value!");
         }
 
