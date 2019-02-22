@@ -7,7 +7,10 @@ body {
 }
 
 .wrapper {
+    /* width: 1020px; */
     margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 #image-header {
@@ -79,17 +82,14 @@ footer {
 
 }
 
-
-
 /* Extra small devices (phones, 991px) */
-@media only screen and (max-width: 992px) {
+/* @media only screen and (max-width: 992px) {
     .container {
         max-width:240px;
         /* margin-left: -10px; */
     }
 
-}
-
+} */
 
 /* Extra small devices (phones, 575px) */
 @media only screen and (max-width: 575px) {
