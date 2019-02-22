@@ -24,4 +24,5 @@ https://echiang73.github.io/unit-4-game/
 * jQuery
 
 Here's a preview of the game:
+
 ![](assets/images/gamepreview.gif "gif")
