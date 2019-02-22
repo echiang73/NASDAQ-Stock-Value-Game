@@ -4,10 +4,6 @@
   var audioWin = new Audio("assets/sound/Money-song.mp3");
   var audioLose = new Audio("assets/sound/Game-over.mp3");
   var audioClick = new Audio("assets/sound/register-cha-ching.mp3");
-
-  // var audioWin = new Audio("Money-song.mp3");
-  // var audioLose = new Audio("Game-over.mp3");
-  // var audioClick = new Audio("register-cha-ching.mp3");
   
   var winCount = 0;
   var lossCount = 0;
@@ -25,7 +21,7 @@
   // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
   // We begin by expanding our array to include four/five options.
-  var numberOptions = [];  // how do I link the random for loop below!!!!!!
+  var numberOptions = [];
 
    // We begin by expanding our array to include four/five options, random hidden value between 1 - 12.
   for (var i = 0; i < 5; i++) {

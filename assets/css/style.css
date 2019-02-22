@@ -1,7 +1,7 @@
 body {
     /* background-image: url(../images/nasdaq/nasdaqstudio.jpg); */
     /* font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; color: #777777; */
-    /* background-color: black; */
+    background-color: lightsteelblue;
     /* background-size: cover; */
     /* background-repeat: no-repeat; */
 }
@@ -40,10 +40,7 @@ body {
 }
 
 #logorow {
-    /* margin-top: 10px;
-    display: block;
-    margin: auto;
-    width: 50%; */
+    /* margin-left: 10px; */
 }
 
 #number-to-guess, #portfolio-value {
@@ -72,6 +69,26 @@ footer {
     width: 100%;
     z-index: 5;
     }
+
+/* Extra small devices (phones, 1200px) */
+@media only screen and (max-width: 1200px) {
+    .container {
+        max-width: 380x;
+        /* margin-left: -10px; */
+    }
+
+}
+
+
+
+/* Extra small devices (phones, 991px) */
+@media only screen and (max-width: 992px) {
+    .container {
+        max-width:240px;
+        /* margin-left: -10px; */
+    }
+
+}
 
 
 /* Extra small devices (phones, 575px) */
