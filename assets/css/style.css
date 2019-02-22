@@ -41,7 +41,7 @@ body {
     height: 90px;
 }
 
-#win-counter, #loss-counter, #last-stock-value, #breakdown-values {
+#win-counter, #loss-counter, #last-stock-value {
     text-align: center;
     font-weight: bold;
 }

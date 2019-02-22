@@ -28,7 +28,7 @@ $(document).ready(function () {
     portfolioCounter = 0;
     $("#portfolio-value").text(portfolioCounter);
     stockValue = "";
-    $("#last-stock-value").text("Last clicked stock value (click to show): " + stockValue);
+    $("#last-stock-value").text("Last clicked stock value: " + stockValue);
   }
 
   function setStockValue() {
@@ -44,8 +44,8 @@ $(document).ready(function () {
 
     // We begin by expanding our array to include four/five options, random hidden value between 1 - 12.
     for (var i = 0; i < 5; i++) {
-      var randomNumberOptions = ((Math.floor(Math.random() * 12)) + 1);
-      numberOptions.push(randomNumberOptions);
+      var randomNumberOption = ((Math.floor(Math.random() * 12)) + 1);
+      numberOptions.push(randomNumberOption);
     }
 
     for (var i = 0; i < 5; i++) {
@@ -85,9 +85,10 @@ $(document).ready(function () {
 
     var stockValue = ($(this).attr("data-stockvalue"));
     // alert(stockValue);
+
     stockValue = parseInt(stockValue);
     // alert(stockValue);
-    $("#last-stock-value").text("Last clicked stock value (click to show): " + stockValue);
+    $("#last-stock-value").text("Last clicked stock value: " + stockValue);
 
     // We then add the crystalValue to the user's "counter" which is a global variable.
     // Every click, from every crystal adds to the global counter.
