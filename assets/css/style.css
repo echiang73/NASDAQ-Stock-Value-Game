@@ -40,10 +40,10 @@ body {
 }
 
 #logorow {
-    margin-top: 10px;
+    /* margin-top: 10px;
     display: block;
     margin: auto;
-    width: 50%;
+    width: 50%; */
 }
 
 #number-to-guess, #portfolio-value {

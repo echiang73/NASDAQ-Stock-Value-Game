@@ -9,7 +9,6 @@
   // var audioLose = new Audio("Game-over.mp3");
   // var audioClick = new Audio("register-cha-ching.mp3");
   
-  
   var winCount = 0;
   var lossCount = 0;
 
@@ -26,19 +25,16 @@
   // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
   // We begin by expanding our array to include four/five options.
-  var numberOptions = [1,3,5,7,9];  // how do I link the random for loop below!!!!!!
+  var numberOptions = [];  // how do I link the random for loop below!!!!!!
 
    // We begin by expanding our array to include four/five options, random hidden value between 1 - 12.
   for (var i = 0; i < 5; i++) {
   var randomNumberOptions = ((Math.floor(Math.random() * 12)) + 1);
-  randomNumberOptions.push;
+      numberOptions.push(randomNumberOptions);
   }
-
-
 
   for (var i = 0; i < 5; i++) {
     
-
     // For each iteration, we will create an imageStock
     var imageStock = $("<img>");
 
@@ -59,7 +55,6 @@
     // Lastly, each stock image (with all it classes and attributes) will get added to the page.
     $("#logorow").append(imageStock);
   }
-
 
 
   // Functions
@@ -102,8 +97,11 @@
       alert("You lose! Sorry, you did not match the target value!");
     }
 
-  });
+    // $("#last-stock-value").click(function(){
+    //   $("#last-stock-value").hide();
+    // }
 
+  });
 
 // Main Process
 // ============================================================================================================
