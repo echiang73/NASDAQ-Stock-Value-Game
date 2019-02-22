@@ -16,20 +16,12 @@ Click on the link to play!
 https://echiang73.github.io/unit-4-game/
 
 
-<<<<<<< HEAD
-###Built with
-=======
 ### Built with
->>>>>>> 16dc3e078f009b1c639b4226ac7f3f53fcb0d139
 * HTML5
 * CSS3
 * JavaScript
 * Bootstrap
 * jQuery
 
-<<<<<<< HEAD
 Here's a preview of the game:
-
 ![](assets/images/gamepreview.gif "gif")
-=======
->>>>>>> 16dc3e078f009b1c639b4226ac7f3f53fcb0d139
