@@ -9,7 +9,7 @@ Instructions:
 * You win the game by matching your total portfolio to the random value, you lose the game if your total portfolio value goes above the random number.
 * The value of each stock is hidden from you until you click on it.
 * Each time when the game starts, the game will change the value of each stock.
-* Make sure you turn on your volume to enjoy the full sound effect.
+* Make sure you turn up your volume to enjoy the full sound effect.
 
 
 Click on the link to play!
@@ -21,7 +21,7 @@ https://echiang73.github.io/unit-4-game/
 * CSS3
 * JavaScript
 * Bootstrap
-* jQuery
+* jQuery (dynamic insertion of images to HTML with assigned random values)
 
 Here's a preview of the game:
 
