@@ -15,9 +15,9 @@ body {
     margin-bottom: 10px;
 }
 #nasdaq-logo {
-    /* justify-content: center;
+    justify-content: center;
     display: flex;
-    align-items: center; */
+    align-items: center;
 }
 
 #title {
